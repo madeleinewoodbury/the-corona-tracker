@@ -1,12 +1,13 @@
-import React, { Fragment } from 'react';
+import React from 'react';
+import CoronaState from './context/corona/CoronaState';
 import Home from './components/Home';
 import './App.css';
 
 const App = () => {
   return (
-    <Fragment>
+    <CoronaState>
       <Home />
-    </Fragment>
+    </CoronaState>
   );
 };
 
