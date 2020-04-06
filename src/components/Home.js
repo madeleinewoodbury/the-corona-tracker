@@ -1,5 +1,6 @@
 import React, { useContext, useEffect } from 'react';
 import CoronaContext from '../context/corona/coronaContext';
+import Countries from './Countries';
 
 const Home = () => {
   const coronaContext = useContext(CoronaContext);
@@ -30,6 +31,7 @@ const Home = () => {
             </p>
           </div>
         )}
+        <Countries />
       </div>
     )
   );
