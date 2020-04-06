@@ -1,15 +1,7 @@
-import React from 'react';
-import Country from './Country';
-import countries from '../countries';
+import React, { useContext } from 'react';
 
 const Countries = () => {
-  return (
-    <div>
-      {countries.map((country) => (
-        <Country key={country.code} country={country} />
-      ))}
-    </div>
-  );
+  return <h1>Countries</h1>;
 };
 
 export default Countries;

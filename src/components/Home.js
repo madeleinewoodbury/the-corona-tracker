@@ -1,10 +1,11 @@
 import React, { useContext, useEffect } from 'react';
 import CoronaContext from '../context/corona/coronaContext';
+import { countriesData } from '../countriesData';
 import Countries from './Countries';
 
 const Home = () => {
   const coronaContext = useContext(CoronaContext);
-  const { getTotal, total, loading } = coronaContext;
+  const { getTotal, getCountryData, total, loading } = coronaContext;
 
   useEffect(() => {
     getTotal();
@@ -31,7 +32,6 @@ const Home = () => {
             </p>
           </div>
         )}
-        <Countries />
       </div>
     )
   );

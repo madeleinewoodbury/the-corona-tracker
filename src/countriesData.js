@@ -1,4 +1,4 @@
-const countries = [
+export const countriesData = [
   { code: 'AD', name: 'Andorra' },
   { code: 'AE', name: 'United Arab Emirates' },
   { code: 'AF', name: 'Afghanistan' },
@@ -6,7 +6,6 @@ const countries = [
   { code: 'AI', name: 'Anguilla' },
   { code: 'AL', name: 'Albania' },
   { code: 'AM', name: 'Armenia' },
-  { code: 'AN', name: 'Netherlands Antilles' },
   { code: 'AO', name: 'Angola' },
   { code: 'AQ', name: 'Antarctica' },
   { code: 'AR', name: 'Argentina' },
@@ -24,7 +23,7 @@ const countries = [
   { code: 'BI', name: 'Burundi' },
   { code: 'BJ', name: 'Benin' },
   { code: 'BM', name: 'Bermuda' },
-  { code: 'BN', name: 'Brunei Darussalam' },
+  { code: 'BN', name: 'Brunei' },
   { code: 'BO', name: 'Bolivia' },
   { code: 'BR', name: 'Brazil' },
   { code: 'BS', name: 'Bahamas' },
@@ -245,5 +244,3 @@ const countries = [
   { code: 'ZM', name: 'Zambia' },
   { code: 'ZW', name: 'Zimbabwe' },
 ];
-
-export default countries;
