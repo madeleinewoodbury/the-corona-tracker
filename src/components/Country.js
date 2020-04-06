@@ -1,14 +1,20 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 
-const Country = ({ country }) => {
+const Country = ({ country, history }) => {
+  const handleClick = () => {
+    history.push(`/countries/${country.country}`);
+  };
   return (
-    <div className="country">
-      <Link to={`/countries/${country.country}`} className="country-link">
+    <tr onClick={handleClick}>
+      <td>
+        {' '}
         <img src={country.countryInfo.flag} alt="flag" />
         <span>{country.country}</span>
-      </Link>
-    </div>
+      </td>
+      <td>{country.cases}</td>
+      <td>{country.deaths}</td>
+      <td className="hide-sm">{country.tests}</td>
+    </tr>
   );
 };
 
