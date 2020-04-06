@@ -226,7 +226,7 @@ export const countriesData = [
   { code: 'UA', name: 'Ukraine' },
   { code: 'UG', name: 'Uganda' },
   { code: 'UM', name: 'United States minor outlying islands' },
-  { code: 'US', name: 'United States' },
+  { code: 'US', name: 'USA' },
   { code: 'UY', name: 'Uruguay' },
   { code: 'UZ', name: 'Uzbekistan' },
   { code: 'VA', name: 'Vatican City State' },

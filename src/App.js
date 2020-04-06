@@ -4,6 +4,7 @@ import CoronaState from './context/corona/CoronaState';
 import Navbar from './components/Navbar';
 import Home from './components/Home';
 import Countries from './components/Countries';
+import CountryData from './components/CountryData';
 import './App.css';
 
 const App = () => {
@@ -15,6 +16,7 @@ const App = () => {
           <Switch>
             <Route exact path="/" component={Home} />
             <Route exact path="/countries" component={Countries} />
+            <Route exact path="/:name/:code" component={CountryData} />
           </Switch>
         </div>
       </Router>
