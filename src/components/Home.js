@@ -3,17 +3,35 @@ import CoronaContext from '../context/corona/coronaContext';
 
 const Home = () => {
   const coronaContext = useContext(CoronaContext);
-  const { title, getCountryData } = coronaContext;
+  const { getTotal, total, loading } = coronaContext;
 
   useEffect(() => {
-    getCountryData('sweden');
+    getTotal();
     // eslint-disable-next-line
   }, []);
 
   return (
-    <div>
-      <h1>{title}</h1>
-    </div>
+    !loading && (
+      <div>
+        <h1>The Corona Tracker</h1>
+        {total !== null && (
+          <div>
+            <p>
+              <strong>Confirmed: </strong> {total.confirmed}
+            </p>
+            <p>
+              <strong>Critical: </strong> {total.critical}
+            </p>
+            <p>
+              <strong>Recovered: </strong> {total.recovered}
+            </p>
+            <p>
+              <strong>Deaths: </strong> {total.deaths}
+            </p>
+          </div>
+        )}
+      </div>
+    )
   );
 };
 

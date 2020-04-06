@@ -3,15 +3,36 @@ import axios from 'axios';
 import CoronaContext from './coronaContext';
 import CoronaReducer from './coronaReducer';
 import config from '../config';
-import { GET_DATA, DATA_ERROR } from '../types';
+import { GET_TOTAL, GET_COUNTRY, DATA_ERROR } from '../types';
 
 const CoronaState = (props) => {
   const initialState = {
-    title: 'The Corona Tracker',
-    data: null,
+    total: null,
+    country: null,
+    loading: true,
   };
 
   const [state, dispatch] = useReducer(CoronaReducer, initialState);
+
+  // Get Totals
+  const getTotal = async () => {
+    try {
+      const res = await axios.get(
+        'https://covid-19-data.p.rapidapi.com/totals?format=undefined',
+        config
+      );
+
+      dispatch({
+        type: GET_TOTAL,
+        payload: res.data[0],
+      });
+    } catch (err) {
+      console.log(err);
+      dispatch({
+        type: DATA_ERROR,
+      });
+    }
+  };
 
   // Get Country Data By Name
   const getCountryData = async (country) => {
@@ -22,7 +43,7 @@ const CoronaState = (props) => {
       );
 
       dispatch({
-        type: GET_DATA,
+        type: GET_COUNTRY,
         payload: res.data,
       });
     } catch (err) {
@@ -34,7 +55,15 @@ const CoronaState = (props) => {
   };
 
   return (
-    <CoronaContext.Provider value={{ title: state.title, getCountryData }}>
+    <CoronaContext.Provider
+      value={{
+        total: state.total,
+        country: state.country,
+        loading: state.loading,
+        getTotal,
+        getCountryData,
+      }}
+    >
       {props.children}
     </CoronaContext.Provider>
   );

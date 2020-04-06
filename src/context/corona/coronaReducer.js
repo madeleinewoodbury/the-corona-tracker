@@ -1,17 +1,26 @@
-import { GET_DATA, DATA_ERROR } from '../types';
+import { GET_TOTAL, GET_COUNTRY, DATA_ERROR } from '../types';
 
 export default (state, action) => {
   const { type, payload } = action;
   switch (type) {
-    case GET_DATA:
+    case GET_TOTAL:
       return {
         ...state,
-        data: payload,
+        total: payload,
+        loading: false,
+      };
+    case GET_COUNTRY:
+      return {
+        ...state,
+        country: payload,
+        loading: false,
       };
     case DATA_ERROR:
       return {
         ...state,
-        data: null,
+        total: null,
+        country: null,
+        loading: false,
       };
     default:
       return state;
