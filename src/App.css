@@ -1,6 +1,6 @@
 /* Global Styles */
 :root {
-  --primary-color: #810000;
+  --primary-color: #9b0000;
   --dark-color: #333333;
   --light-color: #f4f4f4;
 }
@@ -35,6 +35,27 @@ ul {
   padding: 0 2rem;
 }
 
+.btn {
+  display: inline-block;
+  background: var(--primary-color);
+  color: var(--light-color);
+  padding: 0.4rem 1.3rem;
+  font-size: 1.1rem;
+  border: none;
+  cursor: pointer;
+  margin-right: 0.5rem;
+  outline: none;
+}
+
+.btn:hover {
+  background-color: rgb(201, 0, 0);
+}
+
+small {
+  margin-top: 1rem;
+  color: red;
+}
+
 /* Navbar */
 .navbar {
   display: flex;
@@ -43,9 +64,19 @@ ul {
   padding: 0.7rem 2rem;
   z-index: 1;
   width: 100%;
-  background-color: var(--primary-color);
-  opacity: 0.9;
+  border-bottom: 5px solid var(--primary-color);
+  background-color: black;
   margin-bottom: 1rem;
+}
+
+.navbar .brand {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.navbar .brand img {
+  width: 60px;
 }
 
 .navbar ul {
@@ -53,13 +84,42 @@ ul {
 }
 
 .navbar a {
-  color: #fff;
+  color: var(--light-color);
   padding: 0.45rem;
   margin: 0 0.25rem;
+  font-size: 1.3rem;
 }
 
 .navbar a:hover {
   color: var(--light-color);
+}
+
+/* Landing */
+.landing {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.landing h1 {
+  font-size: 3rem;
+  margin-bottom: 2rem;
+}
+
+.landing .totals {
+  display: grid;
+  grid-template-columns: repeat(2, 300px);
+  margin-bottom: 1rem;
+}
+
+.landing .totals div {
+  padding: 1rem;
+  margin: 1rem 2rem;
+  background-color: var(--light-color);
+  color: var(--dark-color);
+  border-radius: 5px;
+  font-size: 1.2rem;
 }
 
 /* Countries */
@@ -74,6 +134,7 @@ ul {
 table {
   width: 100%;
   border-spacing: 0;
+  color: white;
 }
 
 table th,
@@ -84,11 +145,11 @@ table td {
 
 table tbody tr {
   cursor: pointer;
-  background-color: white;
+  background-color: rgba(0, 0, 0, 1);
 }
 
 table tr:nth-of-type(even) {
-  background-color: var(--light-color);
+  background-color: rgba(0, 0, 0, 0.5);
 }
 
 table tbody tr:hover {
@@ -97,7 +158,8 @@ table tbody tr:hover {
 }
 
 table th {
-  background: var(--dark-color);
+  background: var(--primary-color);
+  border-bottom: 3px solid black;
   color: white;
 }
 
@@ -109,6 +171,40 @@ table tr td:first-of-type {
 table tr td img {
   width: 60px;
   margin-right: 1rem;
+}
+
+/* Country Data */
+.country-data {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.country-data .img-container {
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  margin: 1rem;
+}
+
+.country-data h1 {
+  font-size: 3rem;
+}
+
+.country-data .info {
+  display: grid;
+  grid-template-columns: repeat(2, 300px);
+}
+
+.country-data .info .info-item {
+  padding: 1rem;
+  margin: 1rem 2rem;
+  background-color: var(--light-color);
+  color: var(--dark-color);
+  border-radius: 5px;
+  font-size: 1.2rem;
 }
 
 /* Media Queries */

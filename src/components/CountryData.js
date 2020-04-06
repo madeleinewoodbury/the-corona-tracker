@@ -13,28 +13,28 @@ const CountryData = ({ match }) => {
   return !loading && current !== null ? (
     <div className="country-data">
       <h1>{current.country}</h1>
-      <div className="img-container" style={{ width: '400px' }}>
+      <div className="img-container">
         <img src={current.countryInfo.flag} alt={`${current.country} flag`} />
       </div>
-      <div>
-        <p>
+      <div className="info">
+        <div className="info-item">
           <strong>Total Cases: </strong> {current.cases}
-        </p>
-        <p>
+        </div>
+        <div className="info-item">
           <strong>Total Deaths: </strong> {current.deaths}
-        </p>
-        <p>
+        </div>
+        <div className="info-item">
           <strong>Cases Today: </strong> {current.todayCases}
-        </p>
-        <p>
+        </div>
+        <div className="info-item">
           <strong>Deaths Today: </strong> {current.todayDeaths}
-        </p>
-        <p>
+        </div>
+        <div className="info-item">
           <strong>Recovered: </strong> {current.recovered}
-        </p>
-        <p>
-          <strong>Tests: </strong> {current.tests}
-        </p>
+        </div>
+        <div className="info-item">
+          <strong>Tested: </strong> {current.tests}
+        </div>
       </div>
     </div>
   ) : (

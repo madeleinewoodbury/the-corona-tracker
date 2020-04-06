@@ -1,7 +1,6 @@
 import React, { useContext, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import CoronaContext from '../context/corona/coronaContext';
-import { countriesData } from '../countriesData';
-import Countries from './Countries';
 
 const Home = () => {
   const coronaContext = useContext(CoronaContext);
@@ -14,33 +13,33 @@ const Home = () => {
 
   return (
     !loading && (
-      <div>
+      <div className="landing">
         <h1>The Corona Tracker</h1>
         {total !== null && (
-          <div>
-            <p>
+          <div className="totals">
+            <div>
               <strong>Total Cases: </strong> {total.cases}
-            </p>
-            <p>
+            </div>
+            <div>
               <strong>Total Deaths: </strong> {total.deaths}
-            </p>
-            <p>
+            </div>
+            <div>
               <strong>Cases Today: </strong> {total.todayCases}
-            </p>
-            <p>
+            </div>
+            <div>
               <strong>Deaths Today: </strong> {total.todayDeaths}
-            </p>
-            <p>
+            </div>
+            <div>
               <strong>Recovered: </strong> {total.recovered}
-            </p>
-            <p>
+            </div>
+            <div>
               <strong>Tests: </strong> {total.tests}
-            </p>
-            <p>
-              <strong>Countries Affected: </strong> {total.affectedCountries}
-            </p>
+            </div>
           </div>
         )}
+        <Link to="/countries" className="btn">
+          View Countries
+        </Link>
       </div>
     )
   );

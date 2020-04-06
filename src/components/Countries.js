@@ -4,7 +4,7 @@ import Country from './Country';
 
 const Countries = ({ history }) => {
   const coronaContext = useContext(CoronaContext);
-  const { getAllCountries, countries, loading } = coronaContext;
+  const { getAllCountries, countries, total, loading } = coronaContext;
 
   useEffect(() => {
     getAllCountries();
