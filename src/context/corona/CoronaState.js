@@ -2,13 +2,13 @@ import React, { useReducer } from 'react';
 import axios from 'axios';
 import CoronaContext from './coronaContext';
 import CoronaReducer from './coronaReducer';
-import config from '../config';
-import { GET_TOTAL, GET_COUNTRY, DATA_ERROR } from '../types';
+import { GET_TOTAL, GET_COUNTRIES, GET_COUNTRY, DATA_ERROR } from '../types';
 
 const CoronaState = (props) => {
   const initialState = {
     total: null,
-    country: null,
+    current: null,
+    countries: [],
     loading: true,
   };
 
@@ -17,14 +17,11 @@ const CoronaState = (props) => {
   // Get Totals
   const getTotal = async () => {
     try {
-      const res = await axios.get(
-        'https://covid-19-data.p.rapidapi.com/totals?format=undefined',
-        config
-      );
+      const res = await axios.get('https://corona.lmao.ninja/all');
 
       dispatch({
         type: GET_TOTAL,
-        payload: res.data[0],
+        payload: res.data,
       });
     } catch (err) {
       console.log(err);
@@ -38,8 +35,7 @@ const CoronaState = (props) => {
   const getCountryData = async (country) => {
     try {
       const res = await axios.get(
-        `https://covid-19-data.p.rapidapi.com/country?format=undefined&name=${country}`,
-        config
+        `https://corona.lmao.ninja/countries/${country}`
       );
 
       dispatch({
@@ -54,14 +50,35 @@ const CoronaState = (props) => {
     }
   };
 
+  // Get all countries
+  const getAllCountries = async () => {
+    try {
+      const res = await axios.get(
+        'https://corona.lmao.ninja/countries?sort=cases'
+      );
+
+      dispatch({
+        type: GET_COUNTRIES,
+        payload: res.data,
+      });
+    } catch (err) {
+      console.log(err);
+      dispatch({
+        type: DATA_ERROR,
+      });
+    }
+  };
+
   return (
     <CoronaContext.Provider
       value={{
         total: state.total,
-        country: state.country,
+        countries: state.countries,
+        current: state.current,
         loading: state.loading,
         getTotal,
         getCountryData,
+        getAllCountries,
       }}
     >
       {props.children}

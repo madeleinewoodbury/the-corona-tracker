@@ -1,14 +1,24 @@
-import React from 'react';
-import { countriesData } from '../countriesData';
+import React, { useEffect, useContext } from 'react';
+import CoronaContext from '../context/corona/coronaContext';
 import Country from './Country';
 
 const Countries = () => {
+  const coronaContext = useContext(CoronaContext);
+  const { getAllCountries, countries, loading } = coronaContext;
+
+  useEffect(() => {
+    getAllCountries();
+    // eslint-disable-next-line
+  }, []);
   return (
-    <div className="countries">
-      {countriesData.map((country) => (
-        <Country key={country.code} country={country} />
-      ))}
-    </div>
+    !loading && (
+      <div className="countries">
+        {countries &&
+          countries.map((country) => (
+            <Country key={country.country} country={country} />
+          ))}
+      </div>
+    )
   );
 };
 

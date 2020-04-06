@@ -5,7 +5,7 @@ import Countries from './Countries';
 
 const Home = () => {
   const coronaContext = useContext(CoronaContext);
-  const { getTotal, getCountryData, total, loading } = coronaContext;
+  const { getTotal, total, loading } = coronaContext;
 
   useEffect(() => {
     getTotal();
@@ -19,16 +19,25 @@ const Home = () => {
         {total !== null && (
           <div>
             <p>
-              <strong>Confirmed: </strong> {total.confirmed}
+              <strong>Total Cases: </strong> {total.cases}
             </p>
             <p>
-              <strong>Critical: </strong> {total.critical}
+              <strong>Total Deaths: </strong> {total.deaths}
+            </p>
+            <p>
+              <strong>Cases Today: </strong> {total.todayCases}
+            </p>
+            <p>
+              <strong>Deaths Today: </strong> {total.todayDeaths}
             </p>
             <p>
               <strong>Recovered: </strong> {total.recovered}
             </p>
             <p>
-              <strong>Deaths: </strong> {total.deaths}
+              <strong>Tests: </strong> {total.tests}
+            </p>
+            <p>
+              <strong>Countries Affected: </strong> {total.affectedCountries}
             </p>
           </div>
         )}

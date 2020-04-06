@@ -3,32 +3,37 @@ import CoronaContext from '../context/corona/coronaContext';
 
 const CountryData = ({ match }) => {
   const coronaContext = useContext(CoronaContext);
-  const { getCountryData, country, loading } = coronaContext;
+  const { getCountryData, current, loading } = coronaContext;
 
   useEffect(() => {
     getCountryData(match.params.name);
     // eslint-disable-next-line
   }, []);
 
-  return !loading && country !== null ? (
+  return !loading && current !== null ? (
     <div className="country-data">
-      <h1>{country[0].country}</h1>
-      <img
-        src={`https://www.countryflags.io/${match.params.code}/flat/64.png`}
-        alt={`${match.params.name} flag`}
-      />
+      <h1>{current.country}</h1>
+      <div className="img-container" style={{ width: '400px' }}>
+        <img src={current.countryInfo.flag} alt={`${current.country} flag`} />
+      </div>
       <div>
         <p>
-          <strong>Confirmed: </strong> {country[0].confirmed}
+          <strong>Total Cases: </strong> {current.cases}
         </p>
         <p>
-          <strong>Critical: </strong> {country[0].critical}
+          <strong>Total Deaths: </strong> {current.deaths}
         </p>
         <p>
-          <strong>Recovered: </strong> {country[0].recovered}
+          <strong>Cases Today: </strong> {current.todayCases}
         </p>
         <p>
-          <strong>Deaths: </strong> {country[0].deaths}
+          <strong>Deaths Today: </strong> {current.todayDeaths}
+        </p>
+        <p>
+          <strong>Recovered: </strong> {current.recovered}
+        </p>
+        <p>
+          <strong>Tests: </strong> {current.tests}
         </p>
       </div>
     </div>
