@@ -9,8 +9,7 @@ export const Nav = styled.nav`
   z-index: 1;
   width: 100%;
   border-bottom: 5px solid var(--primary-color);
-  background-color: black;
-  margin-bottom: 1rem;
+  background: ${(props) => props.theme.colors.background};
 `;
 
 export const BrandLink = styled(Link)`
@@ -18,6 +17,7 @@ export const BrandLink = styled(Link)`
   justify-content: center;
   align-items: center;
   font-size: 1.3rem;
+  color: ${(props) => props.theme.colors.textColor};
   &:hover {
     color: red;
   }
@@ -25,13 +25,14 @@ export const BrandLink = styled(Link)`
 
 export const BrandImg = styled('img')`
   width: 60px;
+  margin-right: 1rem;
 `;
 
 export const NavLink = styled(Link)`
-  color: var(--light-color);
   padding: 0.45rem;
   margin: 0 0.25rem;
   font-size: 1.3rem;
+  color: ${(props) => props.theme.colors.textColor};
   &:hover {
     color: red;
   }
