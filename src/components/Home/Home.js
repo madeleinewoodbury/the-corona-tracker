@@ -1,6 +1,6 @@
 import React, { useContext, useEffect } from 'react';
-import { Link } from 'react-router-dom';
-import CoronaContext from '../context/corona/coronaContext';
+import CoronaContext from '../../context/corona/coronaContext';
+import { Landing, Title, Totals, TotalsDiv, BtnLink } from './styles';
 
 const Home = () => {
   const coronaContext = useContext(CoronaContext);
@@ -13,34 +13,32 @@ const Home = () => {
 
   return (
     !loading && (
-      <div className="landing">
-        <h1>The Corona Tracker</h1>
+      <Landing>
+        <Title>The Corona Tracker</Title>
         {total !== null && (
-          <div className="totals">
-            <div>
+          <Totals>
+            <TotalsDiv>
               <strong>Total Cases: </strong> {total.cases}
-            </div>
-            <div>
+            </TotalsDiv>
+            <TotalsDiv>
               <strong>Total Deaths: </strong> {total.deaths}
-            </div>
-            <div>
+            </TotalsDiv>
+            <TotalsDiv>
               <strong>Cases Today: </strong> {total.todayCases}
-            </div>
-            <div>
+            </TotalsDiv>
+            <TotalsDiv>
               <strong>Deaths Today: </strong> {total.todayDeaths}
-            </div>
-            <div>
+            </TotalsDiv>
+            <TotalsDiv>
               <strong>Recovered: </strong> {total.recovered}
-            </div>
-            <div>
+            </TotalsDiv>
+            <TotalsDiv>
               <strong>Tests: </strong> {total.tests}
-            </div>
-          </div>
+            </TotalsDiv>
+          </Totals>
         )}
-        <Link to="/countries" className="btn">
-          View Countries
-        </Link>
-      </div>
+        <BtnLink to="/countries">View Countries</BtnLink>
+      </Landing>
     )
   );
 };

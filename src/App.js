@@ -1,10 +1,10 @@
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import CoronaState from './context/corona/CoronaState';
-import Navbar from './components/Navbar';
-import Home from './components/Home';
-import Countries from './components/Countries';
-import CountryData from './components/CountryData';
+import Navbar from './components/Navbar/Navbar';
+import Home from './components/Home/Home';
+import Countries from './components/Countries/Countries';
+import CountryData from './components/CountryData/CountryData/CountryData';
 import './App.css';
 
 const App = () => {

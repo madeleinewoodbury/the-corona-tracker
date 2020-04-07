@@ -1,10 +1,11 @@
 import React, { useEffect, useContext } from 'react';
-import CoronaContext from '../context/corona/coronaContext';
-import Country from './Country';
+import CoronaContext from '../../context/corona/coronaContext';
+import Country from '../Country/Country';
+import { Wrapper, Table, Cell, SortIcon } from './styles';
 
 const Countries = ({ history }) => {
   const coronaContext = useContext(CoronaContext);
-  const { getAllCountries, countries, total, loading } = coronaContext;
+  const { getAllCountries, countries, loading } = coronaContext;
 
   useEffect(() => {
     getAllCountries();
@@ -12,14 +13,16 @@ const Countries = ({ history }) => {
   }, []);
   return (
     !loading && (
-      <div className="countries">
-        <table>
+      <Wrapper>
+        <Table>
           <thead>
             <tr>
-              <th>Country</th>
-              <th>Cases</th>
-              <th>Deaths</th>
-              <th className="hide-sm">Tested</th>
+              <Cell>
+                Country <SortIcon className="fas fa-sort-down"></SortIcon>
+              </Cell>
+              <Cell>Cases</Cell>
+              <Cell>Deaths</Cell>
+              <Cell className="hide-sm">Tested</Cell>
             </tr>
           </thead>
           <tbody>
@@ -32,8 +35,8 @@ const Countries = ({ history }) => {
                 />
               ))}
           </tbody>
-        </table>
-      </div>
+        </Table>
+      </Wrapper>
     )
   );
 };

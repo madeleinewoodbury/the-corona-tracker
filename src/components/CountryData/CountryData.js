@@ -1,5 +1,6 @@
 import React, { useEffect, useContext } from 'react';
-import CoronaContext from '../context/corona/coronaContext';
+import CoronaContext from '../../context/corona/coronaContext';
+import { Wrapper, Title, ImgContainer, Info, InfoItem } from './styles';
 
 const CountryData = ({ match }) => {
   const coronaContext = useContext(CoronaContext);
@@ -11,32 +12,32 @@ const CountryData = ({ match }) => {
   }, []);
 
   return !loading && current !== null ? (
-    <div className="country-data">
-      <h1>{current.country}</h1>
-      <div className="img-container">
+    <Wrapper className="country-data">
+      <Title>{current.country}</Title>
+      <ImgContainer>
         <img src={current.countryInfo.flag} alt={`${current.country} flag`} />
-      </div>
-      <div className="info">
-        <div className="info-item">
+      </ImgContainer>
+      <Info>
+        <InfoItem>
           <strong>Total Cases: </strong> {current.cases}
-        </div>
-        <div className="info-item">
+        </InfoItem>
+        <InfoItem>
           <strong>Total Deaths: </strong> {current.deaths}
-        </div>
-        <div className="info-item">
+        </InfoItem>
+        <InfoItem>
           <strong>Cases Today: </strong> {current.todayCases}
-        </div>
-        <div className="info-item">
+        </InfoItem>
+        <InfoItem>
           <strong>Deaths Today: </strong> {current.todayDeaths}
-        </div>
-        <div className="info-item">
+        </InfoItem>
+        <InfoItem>
           <strong>Recovered: </strong> {current.recovered}
-        </div>
-        <div className="info-item">
+        </InfoItem>
+        <InfoItem>
           <strong>Tested: </strong> {current.tests}
-        </div>
-      </div>
-    </div>
+        </InfoItem>
+      </Info>
+    </Wrapper>
   ) : (
     <p>Loading...</p>
   );

@@ -1,18 +1,18 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Nav, BrandLink, BrandImg, NavLink } from './styles';
 
 const Navbar = () => {
   return (
-    <nav className="navbar">
-      <Link to="/" className="brand">
-        <img
+    <Nav>
+      <BrandLink to="/">
+        <BrandImg
           src="https://d2v9ipibika81v.cloudfront.net/uploads/sites/180/sars-cov-19.jpg"
           alt="covid-19 virus"
         />
         The Corona Tracker
-      </Link>
-      <Link to="/countries">Countries</Link>
-    </nav>
+      </BrandLink>
+      <NavLink to="/countries">Countries</NavLink>
+    </Nav>
   );
 };
 
