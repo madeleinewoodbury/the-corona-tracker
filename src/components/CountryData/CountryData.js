@@ -2,6 +2,7 @@ import React, { useEffect, useContext } from 'react';
 import CoronaContext from '../../context/corona/coronaContext';
 import Background from '../layout/Background';
 import Container from '../layout/Container';
+import Spinner from '../layout/Spinner';
 import { Wrapper, Title, ImgContainer, Info, InfoItem } from './styles';
 
 const CountryData = ({ match }) => {
@@ -48,7 +49,7 @@ const CountryData = ({ match }) => {
       </Container>
     </Background>
   ) : (
-    <p>Loading...</p>
+    <Spinner />
   );
 };
 
