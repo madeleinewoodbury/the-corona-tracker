@@ -3,7 +3,6 @@ import styled from 'styled-components';
 
 export const Nav = styled.nav`
   display: flex;
-  justify-content: space-between;
   align-items: center;
   padding: 0.7rem 2rem;
   z-index: 1;
@@ -12,19 +11,8 @@ export const Nav = styled.nav`
   background: ${(props) => props.theme.colors.navColor};
 `;
 
-export const BrandLink = styled(Link)`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 1.3rem;
-  color: ${(props) => props.theme.colors.textColor};
-  &:hover {
-    color: red;
-  }
-`;
-
 export const BrandImg = styled('img')`
-  width: 60px;
+  width: ${(props) => props.theme.brandImg};
   margin-right: 1rem;
 `;
 

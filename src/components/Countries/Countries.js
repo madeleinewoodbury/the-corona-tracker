@@ -1,4 +1,8 @@
 import React, { useEffect, useContext } from 'react';
+import GlobalContext from '../../context/global/globalContext';
+import { ThemeProvider } from 'styled-components';
+import lightTheme from '../../themes/lightTheme';
+import darkTheme from '../../themes/darkTheme';
 import CoronaContext from '../../context/corona/coronaContext';
 import Country from '../Country/Country';
 import Background from '../layout/Background';

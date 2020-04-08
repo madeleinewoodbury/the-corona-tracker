@@ -9,4 +9,5 @@ export default {
     navColor: '#000000',
   },
   boxShadow: '6px 5px 4px -4px rgba(0,0,0, .7);',
+  brandImg: '70px',
 };

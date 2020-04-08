@@ -5,7 +5,7 @@ import { SET_THEME } from '../types';
 
 const GlobalState = (props) => {
   const initialState = {
-    isDark: true,
+    isDark: false,
   };
 
   const [state, dispatch] = useReducer(GlobalReducer, initialState);
