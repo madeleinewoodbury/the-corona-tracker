@@ -1,4 +1,11 @@
-import { GET_TOTAL, GET_COUNTRIES, GET_COUNTRY, DATA_ERROR } from '../types';
+import {
+  GET_TOTAL,
+  GET_COUNTRIES,
+  GET_COUNTRY,
+  SORT_COUNTRIES,
+  DATA_ERROR,
+} from '../types';
+import { dynamicSort } from '../../utils/helper';
 
 export default (state, action) => {
   const { type, payload } = action;
@@ -19,6 +26,12 @@ export default (state, action) => {
       return {
         ...state,
         current: payload,
+        loading: false,
+      };
+    case SORT_COUNTRIES:
+      return {
+        ...state,
+        countries: state.countries.sort(dynamicSort(payload)),
         loading: false,
       };
     case DATA_ERROR:

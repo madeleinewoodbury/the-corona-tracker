@@ -2,7 +2,13 @@ import React, { useReducer } from 'react';
 import axios from 'axios';
 import CoronaContext from './coronaContext';
 import CoronaReducer from './coronaReducer';
-import { GET_TOTAL, GET_COUNTRIES, GET_COUNTRY, DATA_ERROR } from '../types';
+import {
+  GET_TOTAL,
+  GET_COUNTRIES,
+  GET_COUNTRY,
+  SORT_COUNTRIES,
+  DATA_ERROR,
+} from '../types';
 
 const CoronaState = (props) => {
   const initialState = {
@@ -51,10 +57,10 @@ const CoronaState = (props) => {
   };
 
   // Get all countries
-  const getAllCountries = async () => {
+  const getAllCountries = async (sortBy = 'cases') => {
     try {
       const res = await axios.get(
-        'https://corona.lmao.ninja/countries?sort=cases'
+        `https://corona.lmao.ninja/countries?sort=${sortBy}`
       );
 
       dispatch({
@@ -69,6 +75,10 @@ const CoronaState = (props) => {
     }
   };
 
+  // Sort countries dynamically
+  const sortByCountry = async (order) =>
+    dispatch({ type: SORT_COUNTRIES, payload: order });
+
   return (
     <CoronaContext.Provider
       value={{
@@ -79,6 +89,7 @@ const CoronaState = (props) => {
         getTotal,
         getCountryData,
         getAllCountries,
+        sortByCountry,
       }}
     >
       {props.children}
