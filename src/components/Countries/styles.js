@@ -20,8 +20,8 @@ export const Table = styled.table`
 export const Cell = styled.th`
   padding: 1rem;
   text-align: left;
-  background: var(--primary-color);
-  border-bottom: 3px solid black;
+  background: ${(props) => props.theme.colors.primaryColor};
+  border-bottom: 3px solid ${(props) => props.theme.colors.backgroundColor};
   color: white;
   @media (max-width: 1024px) {
     padding: 0.75rem;

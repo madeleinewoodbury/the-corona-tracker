@@ -8,8 +8,8 @@ export const Nav = styled.nav`
   padding: 0.7rem 2rem;
   z-index: 1;
   width: 100%;
-  border-bottom: 5px solid var(--primary-color);
-  background: ${(props) => props.theme.colors.background};
+  border-bottom: 5px solid ${(props) => props.theme.colors.primaryColor};
+  background: ${(props) => props.theme.colors.navColor};
 `;
 
 export const BrandLink = styled(Link)`

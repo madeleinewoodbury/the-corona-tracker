@@ -1,20 +1,20 @@
 import styled from 'styled-components';
 
 export const Row = styled.tr`
+  color: ${(props) => props.theme.colors.textColor};
   &:nth-of-type(even) {
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: ${(props) => props.theme.colors.secondaryColor};
   }
 
   &:hover {
-    background-color: var(--primary-color);
-    color: white;
+    background-color: ${(props) => props.theme.colors.primaryColor};
+    color: #ffffff;
   }
 `;
 
 export const Cell = styled.td`
   padding: 1rem;
   text-align: left;
-  color: white;
   cursor: pointer;
   &:first-of-type {
     display: flex;

@@ -1,4 +1,8 @@
 import React, { useContext, useEffect } from 'react';
+// import GlobalContext from '../../context/global/globalContext';
+// import { ThemeProvider } from 'styled-components';
+// import lightTheme from '../../themes/lightTheme';
+// import darkTheme from '../../themes/darkTheme';
 import CoronaContext from '../../context/corona/coronaContext';
 import Background from '../layout/Background';
 import Container from '../layout/Container';
@@ -8,6 +12,9 @@ const Home = () => {
   const coronaContext = useContext(CoronaContext);
   const { getTotal, total, loading } = coronaContext;
 
+  // const globalContext = useContext(GlobalContext);
+  // const { isDark } = globalContext;
+
   useEffect(() => {
     getTotal();
     // eslint-disable-next-line
@@ -15,6 +22,7 @@ const Home = () => {
 
   return (
     !loading && (
+      // <ThemeProvider theme={isDark ? darkTheme : lightTheme}>
       <Background height="100vh">
         <Container>
           <Landing>
@@ -45,6 +53,7 @@ const Home = () => {
           </Landing>
         </Container>
       </Background>
+      // </ThemeProvider>
     )
   );
 };

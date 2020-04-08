@@ -25,8 +25,9 @@ export const Info = styled.div`
 export const InfoItem = styled.div`
   padding: 1rem;
   margin: 1rem 2rem;
-  background-color: var(--light-color);
-  color: var(--dark-color);
+  background-color: ${(props) => props.theme.colors.secondaryColor};
+  color: ${(props) => props.theme.colors.textColor};
   border-radius: 5px;
   font-size: 1.2rem;
+  box-shadow: ${(props) => props.theme.boxShadow};
 `;

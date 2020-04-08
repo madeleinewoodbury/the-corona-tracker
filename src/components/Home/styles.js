@@ -23,23 +23,24 @@ export const Totals = styled.div`
 export const TotalsDiv = styled.div`
   padding: 1rem;
   margin: 1rem 2rem;
-  background-color: var(--light-color);
-  color: var(--dark-color);
+  background-color: ${(props) => props.theme.colors.secondaryColor};
+  color: ${(props) => props.theme.colors.textColor};
   border-radius: 5px;
   font-size: 1.2rem;
+  box-shadow: ${(props) => props.theme.boxShadow};
 `;
 
 export const BtnLink = styled(Link)`
   display: inline-block;
-  background: var(--primary-color);
-  color: var(--light-color);
+  background: ${(props) => props.theme.colors.primaryColor};
+  color: white;
   padding: 0.4rem 1.3rem;
   font-size: 1.1rem;
   border: none;
   cursor: pointer;
-  margin-right: 0.5rem;
+  margin: 1rem;
   outline: none;
-
+  box-shadow: ${(props) => props.theme.boxShadow};
   &:hover {
     background-color: rgb(201, 0, 0);
   }
