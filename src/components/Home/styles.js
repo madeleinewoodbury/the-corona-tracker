@@ -12,12 +12,23 @@ export const Landing = styled.section`
 export const Title = styled.h1`
   font-size: 3rem;
   margin-bottom: 2rem;
+  @media (max-width: 500px) {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
 `;
 
 export const Totals = styled.div`
   display: grid;
   grid-template-columns: repeat(2, 300px);
   margin-bottom: 1rem;
+  @media (max-width: 600px) {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 0.5rem;
+  }
 `;
 
 export const TotalsDiv = styled.div`
@@ -28,6 +39,11 @@ export const TotalsDiv = styled.div`
   border-radius: 5px;
   font-size: 1.2rem;
   box-shadow: ${(props) => props.theme.boxShadow};
+  @media (max-width: 600px) {
+    width: 100%;
+    padding: 0.75rem;
+    margin: 0.75rem 1rem;
+  }
 `;
 
 export const BtnLink = styled(Link)`

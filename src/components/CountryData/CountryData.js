@@ -3,7 +3,7 @@ import CoronaContext from '../../context/corona/coronaContext';
 import Background from '../layout/Background';
 import Container from '../layout/Container';
 import Spinner from '../layout/Spinner';
-import { Wrapper, Title, ImgContainer, Info, InfoItem } from './styles';
+import { Wrapper, Title, ImgContainer, Flag, Info, InfoItem } from './styles';
 
 const CountryData = ({ match }) => {
   const coronaContext = useContext(CoronaContext);
@@ -15,16 +15,15 @@ const CountryData = ({ match }) => {
   }, []);
 
   return !loading && current !== null ? (
-    <Background height="100vh">
+    <Background height={window.innerWidth < 600 ? '100%' : '100vh'}>
       <Container>
         <Wrapper className="country-data">
           <Title>{current.country}</Title>
-          <ImgContainer>
-            <img
-              src={current.countryInfo.flag}
-              alt={`${current.country} flag`}
-            />
-          </ImgContainer>
+          <Flag
+            src={current.countryInfo.flag}
+            alt={`${current.country} flag`}
+            className="flag-sm"
+          />
           <Info>
             <InfoItem>
               <strong>Total Cases: </strong> {current.cases}
