@@ -6,7 +6,10 @@ import {
   GET_TOTAL,
   GET_COUNTRIES,
   GET_COUNTRY,
-  SORT_COUNTRIES,
+  SORT_BY_COUNTRY,
+  SORT_BY_CASES,
+  SORT_BY_DEATHS,
+  SORT_BY_TESTS,
   DATA_ERROR,
 } from '../types';
 
@@ -76,8 +79,20 @@ const CoronaState = (props) => {
   };
 
   // Sort countries dynamically
-  const sortByCountry = async (order) =>
-    dispatch({ type: SORT_COUNTRIES, payload: order });
+  const sortCountries = async (sort) => {
+    switch (sort) {
+      case 'country':
+        return dispatch({ type: SORT_BY_COUNTRY });
+      case 'cases':
+        return dispatch({ type: SORT_BY_CASES });
+      case 'deaths':
+        return dispatch({ type: SORT_BY_DEATHS });
+      case 'tests':
+        return dispatch({ type: SORT_BY_TESTS });
+      default:
+        break;
+    }
+  };
 
   return (
     <CoronaContext.Provider
@@ -89,7 +104,7 @@ const CoronaState = (props) => {
         getTotal,
         getCountryData,
         getAllCountries,
-        sortByCountry,
+        sortCountries,
       }}
     >
       {props.children}

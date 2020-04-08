@@ -2,7 +2,10 @@ import {
   GET_TOTAL,
   GET_COUNTRIES,
   GET_COUNTRY,
-  SORT_COUNTRIES,
+  SORT_BY_COUNTRY,
+  SORT_BY_CASES,
+  SORT_BY_DEATHS,
+  SORT_BY_TESTS,
   DATA_ERROR,
 } from '../types';
 import { dynamicSort } from '../../utils/helper';
@@ -28,10 +31,30 @@ export default (state, action) => {
         current: payload,
         loading: false,
       };
-    case SORT_COUNTRIES:
+    case SORT_BY_COUNTRY:
       return {
         ...state,
-        countries: state.countries.sort(dynamicSort(payload)),
+        countries: state.countries.sort(dynamicSort('country')),
+        loading: false,
+      };
+    case SORT_BY_CASES:
+      return {
+        ...state,
+        countries: state.countries.sort((a, b) => (a.cases < b.cases ? 1 : -1)),
+        loading: false,
+      };
+    case SORT_BY_DEATHS:
+      return {
+        ...state,
+        countries: state.countries.sort((a, b) =>
+          a.deaths < b.deaths ? 1 : -1
+        ),
+        loading: false,
+      };
+    case SORT_BY_TESTS:
+      return {
+        ...state,
+        countries: state.countries.sort((a, b) => (a.tests < b.tests ? 1 : -1)),
         loading: false,
       };
     case DATA_ERROR:

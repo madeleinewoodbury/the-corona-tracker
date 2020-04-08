@@ -8,7 +8,7 @@ import { Wrapper, Table, Cell, SortIcon } from './styles';
 
 const Countries = ({ history }) => {
   const coronaContext = useContext(CoronaContext);
-  const { getAllCountries, sortByCountry, countries, loading } = coronaContext;
+  const { getAllCountries, sortCountries, countries, loading } = coronaContext;
   const [sort, setSort] = useState('cases');
 
   useEffect(() => {
@@ -18,6 +18,7 @@ const Countries = ({ history }) => {
 
   const handleSort = (sort) => {
     setSort(sort);
+    sortCountries(sort);
   };
 
   const activeClass = 'fas fa-sort-down active';
