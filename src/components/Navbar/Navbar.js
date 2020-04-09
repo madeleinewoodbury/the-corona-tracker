@@ -29,7 +29,7 @@ const Navbar = () => {
     <Nav>
       <BrandImg src={isDark ? darkImg : lightImg} alt="covid-19 virus" />
       <NavLink to="/">Totals</NavLink>
-      <NavLink to="/countries">By Country</NavLink>
+      <NavLink to="/countries">Countries</NavLink>
       <i onClick={handleClick} className="fas fa-moon" style={iconStyles}></i>
     </Nav>
   );

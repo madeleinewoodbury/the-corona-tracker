@@ -1,4 +1,5 @@
 import React, { useEffect, useContext } from 'react';
+import numeral from 'numeral';
 import CoronaContext from '../../context/corona/coronaContext';
 import Background from '../layout/Background';
 import Container from '../layout/Container';
@@ -26,22 +27,27 @@ const CountryData = ({ match }) => {
           />
           <Info>
             <InfoItem>
-              <strong>Total Cases: </strong> {current.cases}
+              <strong>Total Cases: </strong>{' '}
+              {numeral(current.cases).format('0,0')}
             </InfoItem>
             <InfoItem>
-              <strong>Total Deaths: </strong> {current.deaths}
+              <strong>Total Deaths: </strong>{' '}
+              {numeral(current.deaths).format('0,0')}
             </InfoItem>
             <InfoItem>
-              <strong>Cases Today: </strong> {current.todayCases}
+              <strong>Cases Today: </strong>{' '}
+              {numeral(current.todayCases).format('0,0')}
             </InfoItem>
             <InfoItem>
-              <strong>Deaths Today: </strong> {current.todayDeaths}
+              <strong>Deaths Today: </strong>{' '}
+              {numeral(current.todayDeaths).format('0,0')}
             </InfoItem>
             <InfoItem>
-              <strong>Recovered: </strong> {current.recovered}
+              <strong>Recovered: </strong>{' '}
+              {numeral(current.recovered).format('0,0')}
             </InfoItem>
             <InfoItem>
-              <strong>Tested: </strong> {current.tests}
+              <strong>Tested: </strong> {numeral(current.tests).format('0,0')}
             </InfoItem>
           </Info>
         </Wrapper>

@@ -1,4 +1,5 @@
 import React, { useContext, useEffect } from 'react';
+import numeral from 'numeral';
 import CoronaContext from '../../context/corona/coronaContext';
 import Background from '../layout/Background';
 import Container from '../layout/Container';
@@ -22,22 +23,27 @@ const Home = () => {
           {total !== null && (
             <Totals>
               <TotalsDiv>
-                <strong>Total Cases: </strong> {total.cases}
+                <strong>Total Cases: </strong>{' '}
+                {numeral(total.cases).format('0,0')}
               </TotalsDiv>
               <TotalsDiv>
-                <strong>Total Deaths: </strong> {total.deaths}
+                <strong>Total Deaths: </strong>{' '}
+                {numeral(total.deaths).format('0,0')}
               </TotalsDiv>
               <TotalsDiv>
-                <strong>Cases Today: </strong> {total.todayCases}
+                <strong>Cases Today: </strong>{' '}
+                {numeral(total.todayCases).format('0,0')}
               </TotalsDiv>
               <TotalsDiv>
-                <strong>Deaths Today: </strong> {total.todayDeaths}
+                <strong>Deaths Today: </strong>{' '}
+                {numeral(total.todayDeaths).format('0,0')}
               </TotalsDiv>
               <TotalsDiv>
-                <strong>Recovered: </strong> {total.recovered}
+                <strong>Recovered: </strong>{' '}
+                {numeral(total.recovered).format('0,0')}
               </TotalsDiv>
               <TotalsDiv>
-                <strong>Tests: </strong> {total.tests}
+                <strong>Tests: </strong> {numeral(total.tests).format('0,0')}
               </TotalsDiv>
             </Totals>
           )}
