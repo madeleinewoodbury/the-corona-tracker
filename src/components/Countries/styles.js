@@ -26,11 +26,13 @@ export const Cell = styled.th`
   @media (max-width: 1024px) {
     padding: 0.75rem;
   }
+  @media (max-width: 600px) {
+    padding: 0.25 0.5rem;
+  }
 `;
 
 export const SortIcon = styled('i')`
   font-size: 1.4rem;
-  margin-left: 0.2rem;
   cursor: pointer;
   &:hover {
     opacity: 0.7;

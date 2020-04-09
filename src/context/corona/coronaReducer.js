@@ -34,28 +34,46 @@ export default (state, action) => {
     case SORT_BY_COUNTRY:
       return {
         ...state,
-        countries: state.countries.sort(dynamicSort('country')),
+        countries:
+          payload.direction === 'down'
+            ? state.countries.sort(dynamicSort('country'))
+            : state.countries.sort(dynamicSort('-country')),
+        sortByKey: payload.sortBy,
+        sortDirection: payload.direction,
         loading: false,
       };
     case SORT_BY_CASES:
       return {
         ...state,
-        countries: state.countries.sort((a, b) => (a.cases < b.cases ? 1 : -1)),
+        countries:
+          payload.direction === 'down'
+            ? state.countries.sort((a, b) => (a.cases < b.cases ? 1 : -1))
+            : state.countries.sort((a, b) => (a.cases > b.cases ? 1 : -1)),
         loading: false,
+        sortByKey: payload.sortBy,
+        sortDirection: payload.direction,
       };
     case SORT_BY_DEATHS:
       return {
         ...state,
-        countries: state.countries.sort((a, b) =>
-          a.deaths < b.deaths ? 1 : -1
-        ),
+        countries:
+          payload.direction === 'down'
+            ? state.countries.sort((a, b) => (a.deaths < b.deaths ? 1 : -1))
+            : state.countries.sort((a, b) => (a.deaths > b.deaths ? 1 : -1)),
         loading: false,
+        sortByKey: payload.sortBy,
+        sortDirection: payload.direction,
       };
     case SORT_BY_TESTS:
       return {
         ...state,
-        countries: state.countries.sort((a, b) => (a.tests < b.tests ? 1 : -1)),
+        countries:
+          payload.direction === 'down'
+            ? state.countries.sort((a, b) => (a.tests < b.tests ? 1 : -1))
+            : state.countries.sort((a, b) => (a.tests > b.tests ? 1 : -1)),
         loading: false,
+        sortByKey: payload.sortBy,
+        sortDirection: payload.direction,
       };
     case DATA_ERROR:
       return {

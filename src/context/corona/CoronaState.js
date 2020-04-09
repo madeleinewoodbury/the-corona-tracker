@@ -19,6 +19,8 @@ const CoronaState = (props) => {
     current: null,
     countries: [],
     loading: true,
+    sortByKey: 'cases',
+    sortDirection: 'down',
   };
 
   const [state, dispatch] = useReducer(CoronaReducer, initialState);
@@ -80,15 +82,15 @@ const CoronaState = (props) => {
 
   // Sort countries dynamically
   const sortCountries = async (sort) => {
-    switch (sort) {
+    switch (sort.sortBy) {
       case 'country':
-        return dispatch({ type: SORT_BY_COUNTRY });
+        return dispatch({ type: SORT_BY_COUNTRY, payload: sort });
       case 'cases':
-        return dispatch({ type: SORT_BY_CASES });
+        return dispatch({ type: SORT_BY_CASES, payload: sort });
       case 'deaths':
-        return dispatch({ type: SORT_BY_DEATHS });
+        return dispatch({ type: SORT_BY_DEATHS, payload: sort });
       case 'tests':
-        return dispatch({ type: SORT_BY_TESTS });
+        return dispatch({ type: SORT_BY_TESTS, payload: sort });
       default:
         break;
     }
@@ -101,6 +103,8 @@ const CoronaState = (props) => {
         countries: state.countries,
         current: state.current,
         loading: state.loading,
+        sortByKey: state.sortByKey,
+        sortDirection: state.sortDirection,
         getTotal,
         getCountryData,
         getAllCountries,

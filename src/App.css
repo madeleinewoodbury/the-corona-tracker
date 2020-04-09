@@ -22,16 +22,46 @@ a {
   text-decoration: none;
 }
 
-.fas.fa-sort-down {
+.fas.fa-caret-down {
+  position: relative;
+  left: -12px;
+  bottom: -9px;
+}
+
+.fas.fa-caret-up {
+  position: relative;
+  left: 2px;
+  bottom: 4px;
+}
+
+.fas.fa-caret-up,
+.fas.fa-caret-down {
   opacity: 0.5;
 }
 
-.fas.fa-sort-down.active {
+.fas.fa-caret-up.active,
+.fas.fa-caret-down.active {
   opacity: 1;
 }
 
 @media screen and (max-width: 768px) {
   .hide-sm {
     display: none;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  #country-th {
+    width: 200px;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .fas.fa-caret-down,
+  .fas.fa-caret-up {
+    left: 0;
+    bottom: 0;
+    font-size: 1.6rem;
+    padding: 0 0.2rem;
   }
 }

@@ -3,7 +3,7 @@ import CoronaContext from '../../context/corona/coronaContext';
 import Background from '../layout/Background';
 import Container from '../layout/Container';
 import Spinner from '../layout/Spinner';
-import { Wrapper, Title, ImgContainer, Flag, Info, InfoItem } from './styles';
+import { Wrapper, Title, Flag, Info, InfoItem } from './styles';
 
 const CountryData = ({ match }) => {
   const coronaContext = useContext(CoronaContext);
